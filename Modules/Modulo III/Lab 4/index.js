@@ -1,4 +1,4 @@
-principal = {
+Principal = {
 	_varPrivada : 'variable privada objeto principal',
 	metodoPublico : function (mensaje)
 	{
@@ -7,4 +7,4 @@ principal = {
 	}
 };
 
-principal.metodoPublico('ejecutando metodoPublico de principal');
+Principal.metodoPublico('ejecutando metodoPublico de principal');
