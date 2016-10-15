@@ -1,0 +1,24 @@
+{
+  "name": "lab8",
+  "version": "0.1.0",
+  "description": "clases typescript",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/calapig/prueba-unipiloto-apm-5.git"
+  },
+  "keywords": [
+    "Clases",
+    "Objetos",
+    "Typescript"
+  ],
+  "author": "emilio calapina",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/calapig/prueba-unipiloto-apm-5/issues"
+  },
+  "homepage": "https://github.com/calapig/prueba-unipiloto-apm-5#readme"
+}
