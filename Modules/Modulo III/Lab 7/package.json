@@ -1,0 +1,23 @@
+{
+  "name": "lab7",
+  "version": "0.1.0",
+  "description": "laboratorio 7",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/calapig/prueba-unipiloto-apm-5.git"
+  },
+  "keywords": [
+    "laboratorio",
+    "7"
+  ],
+  "author": "emilio calapina",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/calapig/prueba-unipiloto-apm-5/issues"
+  },
+  "homepage": "https://github.com/calapig/prueba-unipiloto-apm-5#readme"
+}

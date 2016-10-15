@@ -13,3 +13,5 @@ function greeter(person: Array<string>){
 var user: Array<string> = ["1","32"];
 
 console.log(greeter(user));
+
+var a: string = 'a';

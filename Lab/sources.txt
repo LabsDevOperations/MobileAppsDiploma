@@ -5,3 +5,12 @@ http://getbootstrap.com/
 
 https://nodejs.org/en/
 https://www.npmjs.com/
+
+https://packagecontrol.io/installation para instalar package en sublime text
+
+https://www.jetbrains.com/idea/ editor de texto recomendado(de paga) 
+
+https://floobits.com/alejo8591/unipiloto-apm-5/file/modules/module_III/lab1/
+
+https://github.com/calapig/prueba-unipiloto-apm-5
+
