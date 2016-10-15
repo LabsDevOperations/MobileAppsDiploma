@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 @Component({
   selector: 'my-app',
-  template: '<h1>Hola mundo cruel</h1>'
+  template: '<h1>{{hello}}</h1>'
 })
 export class AppComponent {
-	
+	hello: string = "hola mundo complicado desde angularJS2";
 }
