@@ -3,5 +3,5 @@ var monitor = 1; // esta es la declaracion de una variable simple en js
 
 console.log(_dev);
 
-alert(_dev);
-alert(monitor); 
+//alert(_dev);
+//alert(monitor); 
