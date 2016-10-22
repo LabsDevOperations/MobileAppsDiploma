@@ -1,8 +1,11 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Student } from '../model/student';
-import { Teacher } from '../model/teacher';
+import { StudentService } from '../service/student.service';
 
-const STUDENTS: Student[] = [
+import { Teacher } from '../model/teacher';
+import { TeacherService } from '../service/teacher.service';
+
+/*const STUDENTS: Student[] = [
     {
         id: 1,
         name: "Alice",
@@ -43,22 +46,41 @@ const TEACHERS: Teacher[] = [
         studies: ["Phd"]
     }
 ];
-
+*/
 
 @Component({
   selector: 'my-app',
-  templateUrl: 'app/templates/school.html'
+  templateUrl: 'app/templates/school.html',
+  providers: [StudentService, TeacherService]
 }) 
 
 
-export class AppComponent {
+export class AppComponent implements OnInit {
+  constructor (
+      private studentService: StudentService, 
+      private teacherService: TeacherService
+  ) {}
+
   title = "School";
-  
+   
   studentSelected : Student;
-  students: Student[] = STUDENTS;
+  //students: Student[] = STUDENTS;
+  students: Student[];
 
   teacherSelected : Teacher;
-  teachers: Teacher[] = TEACHERS;
+  //teachers: Teacher[] = TEACHERS;
+  teachers: Teacher[];
+  
+
+  ngOnInit() {
+        this.studentService.getStudents()
+        .then(students => this.students = students)
+        .catch(error => console.log(error)); 
+
+        this.teacherService.getTeachers()
+        .then(teachers => this.teachers = teachers)
+        .catch(error => console.log(error)); 
+    }
 
   onSelectStudent(student: Student) {
     this.studentSelected = student;

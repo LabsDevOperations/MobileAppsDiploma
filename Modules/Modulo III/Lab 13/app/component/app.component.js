@@ -9,27 +9,30 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var STUDENTS = [
+var student_service_1 = require('../service/student.service');
+var teacher_service_1 = require('../service/teacher.service');
+/*const STUDENTS: Student[] = [
     {
         id: 1,
         name: "Alice",
-        classess: ["Mathematics", "Chemistry"],
+        classess: ["Mathematics","Chemistry"],
         grade: 9.5
     },
     {
         id: 2,
         name: "Candance",
-        classess: ["Sciences", "Language"],
+        classess: ["Sciences","Language"],
         grade: 8.0
     },
     {
         id: 3,
         name: "Lucy",
-        classess: ["Sports", "Mathematics"],
+        classess: ["Sports","Mathematics"],
         grade: 7.5
     }
 ];
-var TEACHERS = [
+
+const TEACHERS: Teacher[] = [
     {
         id: 1,
         name: "Ms. Rodriguez",
@@ -45,16 +48,26 @@ var TEACHERS = [
     {
         id: 3,
         name: "Ms. Durango",
-        rooms: ["2B", "3A"],
+        rooms: ["2B","3A"],
         studies: ["Phd"]
     }
 ];
+*/
 var AppComponent = (function () {
-    function AppComponent() {
+    function AppComponent(studentService, teacherService) {
+        this.studentService = studentService;
+        this.teacherService = teacherService;
         this.title = "School";
-        this.students = STUDENTS;
-        this.teachers = TEACHERS;
     }
+    AppComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.studentService.getStudents()
+            .then(function (students) { return _this.students = students; })
+            .catch(function (error) { return console.log(error); });
+        this.teacherService.getTeachers()
+            .then(function (teachers) { return _this.teachers = teachers; })
+            .catch(function (error) { return console.log(error); });
+    };
     AppComponent.prototype.onSelectStudent = function (student) {
         this.studentSelected = student;
     };
@@ -64,9 +77,10 @@ var AppComponent = (function () {
     AppComponent = __decorate([
         core_1.Component({
             selector: 'my-app',
-            templateUrl: 'app/templates/school.html'
+            templateUrl: 'app/templates/school.html',
+            providers: [student_service_1.StudentService, teacher_service_1.TeacherService]
         }), 
-        __metadata('design:paramtypes', [])
+        __metadata('design:paramtypes', [student_service_1.StudentService, teacher_service_1.TeacherService])
     ], AppComponent);
     return AppComponent;
 }());
