@@ -1,0 +1,15 @@
+<h1>{{ title }}</h1>
+
+
+<input type="text" [(ngModel)]="taximeter.units" placeholder="Units"><br />
+<button style="margin: 20px" (click)="onSelect('festives', taximeter)"><span>festives: </span>{{taximeter.festives}}</button><br />
+<button style="margin: 20px" (click)="onSelect('airport', taximeter)"><span>airport: </span>{{taximeter.airport}}</button><br />
+<button style="margin: 20px" (click)="onSelect('app', taximeter)"><span>app/pip: </span>{{taximeter.app}}</button><br />
+<span style="margin: 20px" >default: </span>{{taximeter.default}}<br />
+<button style="margin: 20px" (click)="onPay(taximeter)" ><span>PAY!!</span></button><br />
+
+<div *ngIf="selected">
+<hr />
+    <label>Total: </label><br />
+    <textarea [(ngModel)]="selected.total" placeholder="total"></textarea><br />
+</div>

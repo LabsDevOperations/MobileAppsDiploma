@@ -1,47 +1,66 @@
 import { Component } from '@angular/core';
 
- export class User {
- 	id: number;
- 	name: string;
- 	address: string;
- 	phone: number;
+ export class Ride {
+   units: number;
+   festives: number;
+   airport: number;
+ 	 app: number;
+ 	 default: number;
+   total: number;
  }
 
 
 @Component({
   selector: 'my-app',
-  templateUrl: 'app/templates/user.html'
+  templateUrl: 'app/templates/taximeter.html'
 })  /* no puedo colocar el componente debajo de un export class comentariado */
 
 
 
 export class AppComponent {
 
-  title = "Mi agenda";
-  users: User[] = USERS;
+  title = "TAXIMETER";
+  taximeter: Ride = {
+      units: 0,
+      festives: 0,
+      airport: 0,
+      app: 0,
+      default: 4100,
+      total: 0
+  }
 
-  onSelect(user: User) {
-    //this.selected = user;
+  onSelect(option: string, taximeter: Ride) {
+    switch (option) {
+      case "festives":
+        if (taximeter.festives === 0)
+          taximeter.festives = 1900;
+        break;
+      case "airport":
+        if (taximeter.airport === 0)
+          taximeter.airport = 3900;
+        break;
+      case "app":
+        if (taximeter.app === 0)
+          taximeter.app = 1700;
+        break;
+      default:
+        // code...
+        break;
+    }
+
+    
+  }
+
+  onPay(taximeter: Ride)
+  {
+    if (taximeter.units <= 50)
+      taximeter.total = taximeter.default;
+    else
+    {
+      taximeter.total = ((taximeter.default * taximeter.units) / 50)
+    }
+
+    taximeter.total = taximeter.total + taximeter.festives + taximeter.airport + taximeter.app;  
+    this.selected = taximeter;
   }
 }
-
-const USERS: User[] = [
-    {
-        id: 1,
-        name: "Emilio Calapiña",
-        address: "Av siempre viva",
-        phone: 6859688
-    },
-    {
-        id: 2,
-        name: "Agelica Uzurriaga",
-        address: "Green Village",
-        phone: 9856598
-    },
-    {
-        id: 3,
-        name: "Tomas Calapiña",
-        address: "Av siempre viva",
-        phone: 6859688
-    }
-];
