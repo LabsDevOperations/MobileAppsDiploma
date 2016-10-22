@@ -11,15 +11,16 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var platform_browser_1 = require('@angular/platform-browser');
 var app_component_1 = require('./component/app.component');
-var user_detail_component_1 = require('./component/user-detail.component');
-var forms_1 = require('@angular/forms'); /* validaciones y binding */
+var student_detail_component_1 = require('./component/student-detail.component');
+var teacher_detail_component_1 = require('./component/teacher-detail.component');
+var forms_1 = require('@angular/forms');
 var AppModule = (function () {
     function AppModule() {
     }
     AppModule = __decorate([
-        /* validaciones y binding */ core_1.NgModule({
+        core_1.NgModule({
             imports: [platform_browser_1.BrowserModule, forms_1.FormsModule],
-            declarations: [app_component_1.AppComponent, user_detail_component_1.UserDetailComponent],
+            declarations: [app_component_1.AppComponent, student_detail_component_1.StudentDetailComponent, teacher_detail_component_1.TeacherDetailComponent],
             bootstrap: [app_component_1.AppComponent]
         }), 
         __metadata('design:paramtypes', [])

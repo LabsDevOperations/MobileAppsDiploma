@@ -9,17 +9,11 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var Ride = (function () {
-    function Ride() {
-    }
-    return Ride;
-}());
-exports.Ride = Ride;
 var AppComponent = (function () {
     function AppComponent() {
         this.title = "TAXIMETER";
         this.taximeter = {
-            units: 0,
+            units: 50,
             festives: 0,
             airport: 0,
             app: 0,
@@ -53,10 +47,9 @@ var AppComponent = (function () {
             taximeter.total = ((taximeter.default * taximeter.units) / 50);
         }
         taximeter.total = taximeter.total + taximeter.festives + taximeter.airport + taximeter.app;
-        this.selected = taximeter;
     };
     AppComponent = __decorate([
-        core_1.Component({
+        /* modelo - clase*/ core_1.Component({
             selector: 'my-app',
             templateUrl: 'app/templates/taximeter.html'
         }), 

@@ -1,15 +1,24 @@
 <h1>{{ title }}</h1>
 
+<label style="margin: 20px" >Units: </label>
+<input style="width:55px" type="text" [(ngModel)]="taximeter.units" placeholder="Units">
+<span style="margin: 20px" >Default: $</span>{{taximeter.default}}<br />
 
-<input type="text" [(ngModel)]="taximeter.units" placeholder="Units"><br />
-<button style="margin: 20px" (click)="onSelect('festives', taximeter)"><span>festives: </span>{{taximeter.festives}}</button><br />
-<button style="margin: 20px" (click)="onSelect('airport', taximeter)"><span>airport: </span>{{taximeter.airport}}</button><br />
-<button style="margin: 20px" (click)="onSelect('app', taximeter)"><span>app/pip: </span>{{taximeter.app}}</button><br />
-<span style="margin: 20px" >default: </span>{{taximeter.default}}<br />
-<button style="margin: 20px" (click)="onPay(taximeter)" ><span>PAY!!</span></button><br />
+<button style="margin: 20px; width:150px" (click)="onSelect('festives', taximeter)">
+    <span>Festives: $</span>{{taximeter.festives}}
+</button><br />
 
-<div *ngIf="selected">
-<hr />
-    <label>Total: </label><br />
-    <textarea [(ngModel)]="selected.total" placeholder="total"></textarea><br />
-</div>
+<button style="margin: 20px; width:150px" (click)="onSelect('airport', taximeter)">
+    <span>Airport: $</span>{{taximeter.airport}}
+</button><br />
+
+<button style="margin: 20px; width:150px" (click)="onSelect('app', taximeter)">
+    <span>App/Pip: $</span>{{taximeter.app}}
+</button><br />
+
+<button style="margin: 20px; width:150px" (click)="onPay(taximeter)" >
+    <span>PAY!!</span>
+</button><br />
+
+<label>Total: </label>
+<h1>${{taximeter.total}}</h1>

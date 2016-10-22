@@ -1,13 +1,9 @@
 import { Component } from '@angular/core';
+import { User } from '../model/user';
 
- export class User {
- 	id: number;
- 	name: string;
- 	address: string;
- 	phone: number;
- }
 
 /*
+
 @Component({
   selector: 'my-app',
   template: '<h1>{{user.id}}</h1><br />' + 
@@ -38,6 +34,7 @@ export class AppComponent {
 
   title = "Mi agenda";
   users: User[] = USERS;
+  selected: User;
 
   onSelect(user: User) {
     this.selected = user;
@@ -53,13 +50,13 @@ const USERS: User[] = [
     },
     {
         id: 2,
-        name: "Agelica Uzurriaga",
+        name: "Angelica Uzurriaga",
         address: "Green Village",
         phone: 9856598
     },
     {
         id: 3,
-        name: "Tomas Calapiña",
+        name: "Tomas Lopez",
         address: "Av siempre viva",
         phone: 6859688
     }

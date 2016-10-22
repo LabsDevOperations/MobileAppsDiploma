@@ -9,22 +9,18 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var platform_browser_1 = require('@angular/platform-browser');
-var app_component_1 = require('./component/app.component');
-var user_detail_component_1 = require('./component/user-detail.component');
-var forms_1 = require('@angular/forms'); /* validaciones y binding */
-var AppModule = (function () {
-    function AppModule() {
+var AppComponent = (function () {
+    function AppComponent() {
+        this.title = "School";
     }
-    AppModule = __decorate([
-        /* validaciones y binding */ core_1.NgModule({
-            imports: [platform_browser_1.BrowserModule, forms_1.FormsModule],
-            declarations: [app_component_1.AppComponent, user_detail_component_1.UserDetailComponent],
-            bootstrap: [app_component_1.AppComponent]
+    AppComponent = __decorate([
+        core_1.Component({
+            selector: 'my-app',
+            templateUrl: 'app/templates/user.html'
         }), 
         __metadata('design:paramtypes', [])
-    ], AppModule);
-    return AppModule;
+    ], AppComponent);
+    return AppComponent;
 }());
-exports.AppModule = AppModule;
-//# sourceMappingURL=app.module.js.map
+exports.AppComponent = AppComponent;
+//# sourceMappingURL=app.component.js.map

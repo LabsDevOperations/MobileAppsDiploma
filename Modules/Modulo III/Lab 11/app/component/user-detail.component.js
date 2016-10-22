@@ -8,23 +8,23 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var core_1 = require('@angular/core');
-var platform_browser_1 = require('@angular/platform-browser');
-var app_component_1 = require('./component/app.component');
-var user_detail_component_1 = require('./component/user-detail.component');
-var forms_1 = require('@angular/forms'); /* validaciones y binding */
-var AppModule = (function () {
-    function AppModule() {
+var core_1 = require('@angular/core'); /* Input: decorador para injection en template */
+var user_1 = require('../model/user');
+var UserDetailComponent = (function () {
+    function UserDetailComponent() {
     }
-    AppModule = __decorate([
-        /* validaciones y binding */ core_1.NgModule({
-            imports: [platform_browser_1.BrowserModule, forms_1.FormsModule],
-            declarations: [app_component_1.AppComponent, user_detail_component_1.UserDetailComponent],
-            bootstrap: [app_component_1.AppComponent]
+    __decorate([
+        core_1.Input(), 
+        __metadata('design:type', user_1.User)
+    ], UserDetailComponent.prototype, "user", void 0);
+    UserDetailComponent = __decorate([
+        core_1.Component({
+            selector: 'user-detail',
+            templateUrl: 'app/templates/user-detail.html'
         }), 
         __metadata('design:paramtypes', [])
-    ], AppModule);
-    return AppModule;
+    ], UserDetailComponent);
+    return UserDetailComponent;
 }());
-exports.AppModule = AppModule;
-//# sourceMappingURL=app.module.js.map
+exports.UserDetailComponent = UserDetailComponent;
+//# sourceMappingURL=user-detail.component.js.map

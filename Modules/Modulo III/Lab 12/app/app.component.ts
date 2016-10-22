@@ -1,13 +1,5 @@
 import { Component } from '@angular/core';
-
- export class Ride {
-   units: number;
-   festives: number;
-   airport: number;
- 	 app: number;
- 	 default: number;
-   total: number;
- }
+import { Ride } from './model/ride'; /* modelo - clase*/
 
 
 @Component({
@@ -19,9 +11,9 @@ import { Component } from '@angular/core';
 
 export class AppComponent {
 
-  title = "TAXIMETER";
+  title : string = "TAXIMETER";
   taximeter: Ride = {
-      units: 0,
+      units: 50,
       festives: 0,
       airport: 0,
       app: 0,
@@ -61,6 +53,5 @@ export class AppComponent {
     }
 
     taximeter.total = taximeter.total + taximeter.festives + taximeter.airport + taximeter.app;  
-    this.selected = taximeter;
   }
 }

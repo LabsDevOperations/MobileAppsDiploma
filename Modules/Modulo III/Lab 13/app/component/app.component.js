@@ -9,57 +9,66 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var User = (function () {
-    function User() {
+var STUDENTS = [
+    {
+        id: 1,
+        name: "Alice",
+        classess: ["Mathematics", "Chemistry"],
+        grade: 9.5
+    },
+    {
+        id: 2,
+        name: "Candance",
+        classess: ["Sciences", "Language"],
+        grade: 8.0
+    },
+    {
+        id: 3,
+        name: "Lucy",
+        classess: ["Sports", "Mathematics"],
+        grade: 7.5
     }
-    return User;
-}());
-exports.User = User;
-/*
-@Component({
-  selector: 'my-app',
-  template: '<h1>{{user.id}}</h1><br />' +
-        '<h2>{{user.name}}</h2><br />' +
-        '<h2>{{user.address}}</h2><br />' +
-        '<h2>{{user.phone}}</h2><br />'
-})
-*/
+];
+var TEACHERS = [
+    {
+        id: 1,
+        name: "Ms. Rodriguez",
+        rooms: ["1A", "2C"],
+        studies: ["Phd"]
+    },
+    {
+        id: 2,
+        name: "Ms. Perez",
+        rooms: ["1A"],
+        studies: ["Phd"]
+    },
+    {
+        id: 3,
+        name: "Ms. Durango",
+        rooms: ["2B", "3A"],
+        studies: ["Phd"]
+    }
+];
 var AppComponent = (function () {
     function AppComponent() {
-        this.title = "Mi agenda";
-        this.users = USERS;
+        this.title = "School";
+        this.students = STUDENTS;
+        this.teachers = TEACHERS;
     }
-    AppComponent.prototype.onSelect = function (user) {
-        this.selected = user;
+    AppComponent.prototype.onSelectStudent = function (student) {
+        this.studentSelected = student;
+    };
+    AppComponent.prototype.onSelectTeacher = function (teacher) {
+        this.teacherSelected = teacher;
     };
     AppComponent = __decorate([
         core_1.Component({
             selector: 'my-app',
-            templateUrl: 'app/templates/user.html'
+            templateUrl: 'app/templates/school.html'
         }), 
         __metadata('design:paramtypes', [])
     ], AppComponent);
     return AppComponent;
 }());
 exports.AppComponent = AppComponent;
-var USERS = [
-    {
-        id: 1,
-        name: "Emilio Calapiña",
-        address: "Av siempre viva",
-        phone: 6859688
-    },
-    {
-        id: 2,
-        name: "Agelica Uzurriaga",
-        address: "Green Village",
-        phone: 9856598
-    },
-    {
-        id: 3,
-        name: "Tomas Calapiña",
-        address: "Av siempre viva",
-        phone: 6859688
-    }
-];
 //# sourceMappingURL=app.component.js.map

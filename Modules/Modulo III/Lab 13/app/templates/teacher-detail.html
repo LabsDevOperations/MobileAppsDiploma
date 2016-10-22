@@ -1,0 +1,16 @@
+<div *ngIf="teacher">
+<hr />
+    <label>Name: </label><br />
+    <textarea [(ngModel)]="teacher.name" placeholder="name"></textarea><br />
+    
+    <label>Rooms: </label><br />
+	<li *ngFor="let room of teacher.rooms" > 
+        <span>{{room | uppercase}}</span>
+    </li>
+
+	<label>Studies: </label><br />
+	<li *ngFor="let studie of teacher.studies" > 
+        <span>{{studie | uppercase}}</span>
+    </li>    
+    
+</div>

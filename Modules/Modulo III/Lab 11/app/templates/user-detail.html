@@ -1,0 +1,9 @@
+<div *ngIf="user">
+<hr />
+    <label>Name: </label><br />
+    <textarea [(ngModel)]="user.name" placeholder="name"></textarea><br />
+    <label>Address: </label><br />
+    <input [(ngModel)]="user.address" placeholder="address"><br />
+    <label>Phone: </label><br />
+    <input [(ngModel)]="user.phone" placeholder="phone"><br />
+</div>

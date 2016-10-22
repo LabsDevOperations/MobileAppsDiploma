@@ -1,18 +1,13 @@
-<!--<h1>{{user.id}}</h1><br />
-<h2>{{user.name}}</h2><br />
-<h2>{{user.address}}</h2><br />
-<h2>{{user.phone}}</h2><br />-->
-
 
 <h1>{{ title }}</h1>
-<ul>
+<!--<ul>
     <li *ngFor="let user of users" 
     	(click)="onSelect(user)"  > 
         <span>{{user.id}}</span> {{user.name | uppercase }} 
     </li>
 </ul>
 
-<!--<div *ngIf="selected">
+<div *ngIf="selected">
 <hr />
     <label>Name: </label><br />
     <textarea [(ngModel)]="selected.name" placeholder="name"></textarea><br />
@@ -20,6 +15,6 @@
     <input [(ngModel)]="selected.address" placeholder="address"><br />
     <label>Phone: </label><br />
     <input [(ngModel)]="selected.phone" placeholder="phone"><br />
-</div>-->
+</div>
 
-<user-detail [user]="selected"></user-detail> <!-- injection -->
+<user-detail [user]="selected"></user-detail> -->
