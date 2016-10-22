@@ -7,6 +7,7 @@ import { Component } from '@angular/core';
  	phone: number;
  }
 
+/*
 @Component({
   selector: 'my-app',
   template: '<h1>{{user.id}}</h1><br />' + 
@@ -14,6 +15,13 @@ import { Component } from '@angular/core';
   			'<h2>{{user.address}}</h2><br />' +
   			'<h2>{{user.phone}}</h2><br />' 
 })
+*/
+
+@Component({
+  selector: 'my-app',
+  templateUrl: 'app/templates/user.html'
+})
+
 export class AppComponent {
 	user: User = {
 		id: 1,

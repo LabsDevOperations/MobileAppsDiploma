@@ -1,8 +1,10 @@
 import { NgModule }      from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
+import { BrowserModule } from '@angular/platform-browser'; /* multiplataforma*/
 import { AppComponent }   from './app.component';
-@NgModule({
-  imports:      [ BrowserModule ],
+import {FormsModule} from '@angular/forms'; /* validaciones */
+@NgModule({ /* metadata global */
+  imports:      [ BrowserModule,
+	  FormsModule ],
   declarations: [ AppComponent ],
   bootstrap:    [ AppComponent ]
 })

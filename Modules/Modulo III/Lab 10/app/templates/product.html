@@ -4,3 +4,17 @@
 <h2>{{product.type}}</h2><br /> 
 <h2>{{product.price}}</h2><br />
 <h2>{{product.quantity}}</h2><br />
+
+<div>
+	<hr />
+	<label for="">Name: </label>
+	<input type="text" [(ngModel)]="product.name" placeholder="Name">
+	<label>Description: </label><br />
+    <textarea [(ngModel)]="product.description" placeholder="description"></textarea><br />
+    <label>Type: </label><br />
+    <input [(ngModel)]="product.type" placeholder="tipo"><br />
+    <label>Price: </label><br />
+    <input [(ngModel)]="product.price" placeholder="precio"><br />
+    <label>Quantity: </label><br />
+    <input [(ngModel)]="product.quantity" placeholder="cantidad"><br />
+</div>
