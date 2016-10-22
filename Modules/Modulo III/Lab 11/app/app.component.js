@@ -19,20 +19,19 @@ exports.User = User;
 @Component({
   selector: 'my-app',
   template: '<h1>{{user.id}}</h1><br />' +
-            '<h2>{{user.name}}</h2><br />' +
-            '<h2>{{user.address}}</h2><br />' +
-            '<h2>{{user.phone}}</h2><br />'
+        '<h2>{{user.name}}</h2><br />' +
+        '<h2>{{user.address}}</h2><br />' +
+        '<h2>{{user.phone}}</h2><br />'
 })
 */
 var AppComponent = (function () {
     function AppComponent() {
-        this.user = {
-            id: 1,
-            name: "Emilio Calapiña",
-            address: "Av siempre viva",
-            phone: 6859688
-        };
+        this.title = "Mi agenda";
+        this.users = USERS;
     }
+    AppComponent.prototype.onSelect = function (user) {
+        this.selected = user;
+    };
     AppComponent = __decorate([
         core_1.Component({
             selector: 'my-app',
@@ -43,4 +42,24 @@ var AppComponent = (function () {
     return AppComponent;
 }());
 exports.AppComponent = AppComponent;
+var USERS = [
+    {
+        id: 1,
+        name: "Emilio Calapiña",
+        address: "Av siempre viva",
+        phone: 6859688
+    },
+    {
+        id: 2,
+        name: "Agelica Uzurriaga",
+        address: "Green Village",
+        phone: 9856598
+    },
+    {
+        id: 3,
+        name: "Tomas Calapiña",
+        address: "Av siempre viva",
+        phone: 6859688
+    }
+];
 //# sourceMappingURL=app.component.js.map

@@ -11,12 +11,12 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var platform_browser_1 = require('@angular/platform-browser'); /* multiplataforma*/
 var app_component_1 = require('./app.component');
-var forms_1 = require('@angular/forms'); /* validaciones */
+var forms_1 = require('@angular/forms'); /* validaciones y binding */
 var AppModule = (function () {
     function AppModule() {
     }
     AppModule = __decorate([
-        /* validaciones */ core_1.NgModule({
+        /* validaciones y binding */ core_1.NgModule({
             imports: [platform_browser_1.BrowserModule,
                 forms_1.FormsModule],
             declarations: [app_component_1.AppComponent],

@@ -7,30 +7,11 @@ import { Component } from '@angular/core';
  	phone: number;
  }
 
-/*
-@Component({
-  selector: 'my-app',
-  template: '<h1>{{user.id}}</h1><br />' + 
-        '<h2>{{user.name}}</h2><br />' +
-        '<h2>{{user.address}}</h2><br />' +
-        '<h2>{{user.phone}}</h2><br />' 
-})
-*/
+
 @Component({
   selector: 'my-app',
   templateUrl: 'app/templates/user.html'
 })  /* no puedo colocar el componente debajo de un export class comentariado */
-
-/*
-export class AppComponent {
-  user: User = {
-    id: 1,
-    name: "Emilio Calapiña",
-    address: "Av siempre viva",
-    phone: 6859688
-  }
-}
-*/
 
 
 
@@ -40,7 +21,7 @@ export class AppComponent {
   users: User[] = USERS;
 
   onSelect(user: User) {
-    this.selected = user;
+    //this.selected = user;
   }
 }
 

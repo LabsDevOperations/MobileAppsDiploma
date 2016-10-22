@@ -9,63 +9,48 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var Product = (function () {
-    function Product() {
+var User = (function () {
+    function User() {
     }
-    return Product;
+    return User;
 }());
-exports.Product = Product;
-/*@Component({
-  selector: 'my-app',
-  template: '<h1>{{product.id}}</h1><br />' +  // esto se traslado a app/templates/product.html
-            '<h2>{{product.name}}</h2><br />' +
-            '<h2>{{product.description}}</h2><br />' +
-            '<h2>{{product.type}}</h2><br />' +
-            '<h2>{{product.price}}</h2><br />' +
-            '<h2>{{product.quantity}}</h2><br />'
-})*/
+exports.User = User;
 var AppComponent = (function () {
     function AppComponent() {
-        this.title = "Mi producto";
-        this.products = PRODUCTS;
+        this.title = "Mi agenda";
+        this.users = USERS;
     }
-    AppComponent.prototype.onSelect = function (product) {
-        this.selected = product;
+    AppComponent.prototype.onSelect = function (user) {
+        //this.selected = user;
     };
     AppComponent = __decorate([
         core_1.Component({
             selector: 'my-app',
-            templateUrl: 'app/templates/product.html'
+            templateUrl: 'app/templates/user.html'
         }), 
         __metadata('design:paramtypes', [])
     ], AppComponent);
     return AppComponent;
 }());
 exports.AppComponent = AppComponent;
-var PRODUCTS = [
+var USERS = [
     {
         id: 1,
-        name: "Samsung galaxy 8",
-        description: "telefono que explota",
-        type: "smartphone",
-        price: 1500000,
-        quantity: 20
+        name: "Emilio Calapiña",
+        address: "Av siempre viva",
+        phone: 6859688
     },
     {
         id: 2,
-        name: "Samsung galaxy 10",
-        description: "telefono que explota",
-        type: "smartphone",
-        price: 1500000,
-        quantity: 20
+        name: "Agelica Uzurriaga",
+        address: "Green Village",
+        phone: 9856598
     },
     {
         id: 3,
-        name: "Samsung galaxy 20",
-        description: "telefono que explota",
-        type: "smartphone",
-        price: 1500000,
-        quantity: 20
+        name: "Tomas Calapiña",
+        address: "Av siempre viva",
+        phone: 6859688
     }
 ];
 //# sourceMappingURL=app.component.js.map
