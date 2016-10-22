@@ -10,11 +10,15 @@ import {ProductService} from '../service/product.service'; // instancia del serv
 
 export class AppComponent implements OnInit { // interface oninit
 
-    constructor(private productService: ProductService) {}
-
+    /*  es buena practica declarar atributos previo al constructor  */
     title: string = "Mis productos";
     selected: Product;
     products: Product[];
+    
+
+    constructor(private productService: ProductService) {}
+
+    
 
     ngOnInit() {
         this.productService.getProducts()
