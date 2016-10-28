@@ -13,6 +13,7 @@ var product_service_1 = require('../service/product.service'); // instancia del 
 var AppComponent = (function () {
     function AppComponent(productService) {
         this.productService = productService;
+        /*  es buena practica declarar atributos previo al constructor  */
         this.title = "Mis productos";
     }
     AppComponent.prototype.ngOnInit = function () {
