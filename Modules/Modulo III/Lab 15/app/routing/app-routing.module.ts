@@ -1,11 +1,12 @@
-import {Routes, RouterModule} from "@angular/router";
-import {NgModule} from "@angular/core";
-import {HomeComponent} from "../component/home.component";
-import {AboutComponent} from "../component/about.component";
-import {PageOneComponent} from "../component/page-one.component";
-import {PageTwoComponent} from "../component/page-two.component";
-import {ProductListComponent} from "../component/product-list.component"
-import {UserListComponent} from "../component/user-list.component"
+import { Routes, RouterModule } from "@angular/router";
+import { NgModule } from "@angular/core";
+import { HomeComponent } from "../component/home.component";
+import { AboutComponent } from "../component/about.component";
+import { PageOneComponent } from "../component/page-one.component";
+import { PageTwoComponent } from "../component/page-two.component";
+import { ProductListComponent } from "../component/product-list.component";
+import { UserListComponent } from "../component/user-list.component";
+import { UserDetailComponent } from "../component/user-detail.component";
 
 const routes: Routes = [
     { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -14,7 +15,8 @@ const routes: Routes = [
     { path: 'page-one', component: PageOneComponent },
     { path: 'page-two', component: PageTwoComponent },
     { path: 'product-list', component: ProductListComponent },
-    { path: 'user-list', component: UserListComponent }
+    { path: 'user-list', component: UserListComponent },
+    { path: 'user/detail/:id', component: UserDetailComponent }
 ];
 
 @NgModule({

@@ -11,6 +11,7 @@ import { PageOneComponent } from './component/page-one.component';
 import { PageTwoComponent } from "./component/page-two.component";
 import { ProductListComponent } from "./component/product-list.component"
 import { UserListComponent } from "./component/user-list.component"
+import { UserDetailComponent } from "./component/user-detail.component"
 
 import {APP_BASE_HREF} from "@angular/common";
 
@@ -27,7 +28,8 @@ import {APP_BASE_HREF} from "@angular/common";
       PageOneComponent,
       PageTwoComponent,
       ProductListComponent,
-      UserListComponent
+      UserListComponent,
+      UserDetailComponent
   ],
   providers: [
       {

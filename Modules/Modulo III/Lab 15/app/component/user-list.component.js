@@ -10,39 +10,25 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var user_service_1 = require('../service/user.service');
-/*export const USERS: User[] = [
-    {
-        id: 1,
-        name: "Emilio Calapiña",
-        address: "Av siempre viva",
-        phone: 6859688
-    },
-    {
-        id: 2,
-        name: "Angelica Uzurriaga",
-        address: "Green Village",
-        phone: 9856598
-    },
-    {
-        id: 3,
-        name: "Tomas Lopez",
-        address: "Av siempre viva",
-        phone: 6859688
-    }
-]*/
+var router_1 = require("@angular/router");
 var UserListComponent = (function () {
-    function UserListComponent(userService) {
+    function UserListComponent(router, userService) {
+        this.router = router;
         this.userService = userService;
         this.title = "Users";
     }
-    UserListComponent.prototype.ngOnInit = function () {
+    UserListComponent.prototype.getUsers = function () {
         var _this = this;
-        this.userService.getUsers()
-            .then(function (users) { return _this.users = users; })
-            .catch(function (error) { return console.log(error); });
+        this.userService.getUsers().then(function (users) { return _this.users = users; });
+    };
+    UserListComponent.prototype.ngOnInit = function () {
+        this.getUsers();
     };
     UserListComponent.prototype.onSelect = function (user) {
         this.selected = user;
+    };
+    UserListComponent.prototype.gotoDetail = function () {
+        this.router.navigate(['user/detail/', this.selected.id]);
     };
     UserListComponent = __decorate([
         core_1.Component({
@@ -50,7 +36,7 @@ var UserListComponent = (function () {
             templateUrl: 'app/templates/user-list.html',
             providers: [user_service_1.UserService]
         }), 
-        __metadata('design:paramtypes', [user_service_1.UserService])
+        __metadata('design:paramtypes', [router_1.Router, user_service_1.UserService])
     ], UserListComponent);
     return UserListComponent;
 }());

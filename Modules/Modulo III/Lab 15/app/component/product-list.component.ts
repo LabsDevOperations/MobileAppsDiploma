@@ -38,6 +38,7 @@ const PRODUCTS: Product[] = [
 })
 export class ProductListComponent implements OnInit {
     title: string = "Products";
+    selected: Product;
     products: Product[];
 
     constructor(private productService: ProductService) {}

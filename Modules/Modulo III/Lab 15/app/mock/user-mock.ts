@@ -18,4 +18,4 @@ export const USERS: User[] = [
         address: "Av siempre viva",
         phone: 6859688
     }
-]
+];
