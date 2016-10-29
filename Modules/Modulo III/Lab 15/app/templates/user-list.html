@@ -7,6 +7,13 @@
 </ul>
 
 <div *ngIf="selected">
+    <h2>
+        {{selected.name | uppercase}} is the USER SELECTED
+    </h2>
+    <button (click)="gotoDetail()">View Details</button>
+</div>
+
+<!--
 <hr />
     <label>Name: </label><br />
     <input [(ngModel)]="selected.name" placeholder="name"><br />
@@ -15,3 +22,4 @@
     <label>Phone: </label><br />
     <input [(ngModel)]="selected.phone" placeholder="phone"><br />
 </div>
+-->
