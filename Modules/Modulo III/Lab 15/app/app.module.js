@@ -12,11 +12,13 @@ var core_1 = require('@angular/core');
 var platform_browser_1 = require('@angular/platform-browser');
 var forms_1 = require('@angular/forms');
 var app_component_1 = require('./component/app.component');
-var page_one_component_1 = require('./component/page-one.component');
 var app_routing_module_1 = require("./routing/app-routing.module");
-var about_component_1 = require("./component/about.component");
-var page_two_component_1 = require("./component/page-two.component");
 var home_component_1 = require("./component/home.component");
+var about_component_1 = require("./component/about.component");
+var page_one_component_1 = require('./component/page-one.component');
+var page_two_component_1 = require("./component/page-two.component");
+var product_list_component_1 = require("./component/product-list.component");
+var user_list_component_1 = require("./component/user-list.component");
 var common_1 = require("@angular/common");
 var AppModule = (function () {
     function AppModule() {
@@ -30,10 +32,12 @@ var AppModule = (function () {
             ],
             declarations: [
                 app_component_1.AppComponent,
+                home_component_1.HomeComponent,
+                about_component_1.AboutComponent,
                 page_one_component_1.PageOneComponent,
                 page_two_component_1.PageTwoComponent,
-                home_component_1.HomeComponent,
-                about_component_1.AboutComponent
+                product_list_component_1.ProductListComponent,
+                user_list_component_1.UserListComponent
             ],
             providers: [
                 {

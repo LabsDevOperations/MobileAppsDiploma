@@ -8,19 +8,19 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var core_1 = require('@angular/core');
-var PageTwoComponent = (function () {
-    function PageTwoComponent() {
-        this.title = "Page Two";
+var core_1 = require("@angular/core");
+var product_mock_1 = require("../mock/product-mock");
+var ProductService = (function () {
+    function ProductService() {
     }
-    PageTwoComponent = __decorate([
-        core_1.Component({
-            selector: 'user-detail',
-            templateUrl: 'app/templates/page-two.html'
-        }), 
+    ProductService.prototype.getProducts = function () {
+        return Promise.resolve(product_mock_1.PRODUCTS);
+    };
+    ProductService = __decorate([
+        core_1.Injectable(), 
         __metadata('design:paramtypes', [])
-    ], PageTwoComponent);
-    return PageTwoComponent;
+    ], ProductService);
+    return ProductService;
 }());
-exports.PageTwoComponent = PageTwoComponent;
-//# sourceMappingURL=page-two.component.js.map
+exports.ProductService = ProductService;
+//# sourceMappingURL=product.service.js.map

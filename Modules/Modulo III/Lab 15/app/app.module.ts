@@ -3,11 +3,15 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 
 import { AppComponent }   from './component/app.component';
+import { AppRoutingModule} from "./routing/app-routing.module";
+
+import { HomeComponent } from "./component/home.component";
+import { AboutComponent } from "./component/about.component";
 import { PageOneComponent } from './component/page-one.component';
-import {AppRoutingModule} from "./routing/app-routing.module";
-import {AboutComponent} from "./component/about.component";
-import {PageTwoComponent} from "./component/page-two.component";
-import {HomeComponent} from "./component/home.component";
+import { PageTwoComponent } from "./component/page-two.component";
+import { ProductListComponent } from "./component/product-list.component"
+import { UserListComponent } from "./component/user-list.component"
+
 import {APP_BASE_HREF} from "@angular/common";
 
 @NgModule({
@@ -18,10 +22,12 @@ import {APP_BASE_HREF} from "@angular/common";
   ],
   declarations: [
       AppComponent,
+      HomeComponent,
+      AboutComponent,
       PageOneComponent,
       PageTwoComponent,
-      HomeComponent,
-      AboutComponent
+      ProductListComponent,
+      UserListComponent
   ],
   providers: [
       {
