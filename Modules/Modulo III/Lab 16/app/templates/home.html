@@ -1,0 +1,14 @@
+<h1>{{ title }}</h1>
+<ul>
+	<li *ngFor="let salesInvoice of salesInvoices"
+		(click)="onSelect(salesInvoice)" >
+		<span style="margin: 10px" >{{salesInvoice.id}}</span>$ {{salesInvoice.invoiceAmount}} 
+	</li>
+</ul>
+
+<div *ngIf="selected">
+    <h2>
+        INVOICE SELECTED # {{selected.id | uppercase}} 
+    </h2>
+    <button (click)="gotoDetail()">View Details</button>
+</div>
