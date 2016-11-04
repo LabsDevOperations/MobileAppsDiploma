@@ -6,9 +6,14 @@
 	</li>
 </ul>
 
-<div *ngIf="selected">
+<div *ngIf="salesInvoiceSelected">
     <h2>
-        INVOICE SELECTED # {{selected.id | uppercase}} 
+        INVOICE SELECTED # {{customerAsociated.name | uppercase}} 
     </h2>
-    <button (click)="gotoDetail()">View Details</button>
+    
+    <hr>
+
+    <li *ngFor="let lineItem of lineItemsAsociated" >
+		<span style="margin: 10px" >{{lineItem.lineNumber}}</span> {{lineItem.productId}} - $ {{lineItem.purchasePrice}}
+	</li>
 </div>

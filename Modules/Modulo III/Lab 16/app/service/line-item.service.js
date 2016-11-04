@@ -8,25 +8,29 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var router_1 = require("@angular/router");
 var core_1 = require("@angular/core");
-var home_component_1 = require("../component/home.component");
-//import { SalesInvoiceListComponent } from "../component/sales-invoice-list.component";
-var routes = [
-    { path: '', redirectTo: '/home', pathMatch: 'full' },
-    { path: 'home', component: home_component_1.HomeComponent }
-];
-var AppRoutingModule = (function () {
-    function AppRoutingModule() {
+var line_item_mock_1 = require("../mock/line-item-mock");
+var LineItemService = (function () {
+    function LineItemService() {
     }
-    AppRoutingModule = __decorate([
-        core_1.NgModule({
-            imports: [router_1.RouterModule.forRoot(routes)],
-            exports: [router_1.RouterModule]
-        }), 
+    LineItemService.prototype.getLineItems = function () {
+        return Promise.resolve(line_item_mock_1.LINEITEMS);
+    };
+    LineItemService.prototype.getLineItemsSalesInvoice = function (salesInvoiceId) {
+        return this.getLineItems()
+            .then(function (lineItems) {
+            return lineItems.filter(function (lineItem) {
+                if (lineItem.salesInvoiceId === salesInvoiceId) {
+                    return true;
+                }
+            });
+        });
+    };
+    LineItemService = __decorate([
+        core_1.Injectable(), 
         __metadata('design:paramtypes', [])
-    ], AppRoutingModule);
-    return AppRoutingModule;
+    ], LineItemService);
+    return LineItemService;
 }());
-exports.AppRoutingModule = AppRoutingModule;
-//# sourceMappingURL=app-routing.module.js.map
+exports.LineItemService = LineItemService;
+//# sourceMappingURL=line-item.service.js.map

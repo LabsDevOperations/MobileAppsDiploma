@@ -10,13 +10,15 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var sales_invoice_service_1 = require('../service/sales-invoice.service');
-/*import { Customer } from '../model/customer';
-import { CustomerService } from '../service/customer.service';*/
+var customer_service_1 = require('../service/customer.service');
+var line_item_service_1 = require('../service/line-item.service');
 var router_1 = require("@angular/router");
 var HomeComponent = (function () {
-    function HomeComponent(router, salesInvoiceService) {
+    function HomeComponent(router, salesInvoiceService, customerService, lineItemService) {
         this.router = router;
         this.salesInvoiceService = salesInvoiceService;
+        this.customerService = customerService;
+        this.lineItemService = lineItemService;
         this.title = "Home List Sales Invoices";
     }
     HomeComponent.prototype.getSalesInvoices = function () {
@@ -27,23 +29,29 @@ var HomeComponent = (function () {
         this.getSalesInvoices();
     };
     HomeComponent.prototype.onSelect = function (salesInvoice) {
-        this.selected = salesInvoice;
+        this.salesInvoiceSelected = salesInvoice;
+        this.getCustomerNameAsociated(salesInvoice.customerId);
+        this.getLineItemsAsociated(salesInvoice.id);
     };
-    /*getCustomerNameAsociated(customerId: number) : string {
-        var customer: Customer;
-        this.customerService.getCustomer(customerId).then(customer => customer = customer);
-        return customer.name;
-    }*/
+    HomeComponent.prototype.getCustomerNameAsociated = function (customerId) {
+        var _this = this;
+        //var customer: Customer;
+        this.customerService.getCustomer(customerId).then(function (customer) { return _this.customerAsociated = customer; });
+    };
+    HomeComponent.prototype.getLineItemsAsociated = function (salesInvoiceId) {
+        var _this = this;
+        this.lineItemService.getLineItemsSalesInvoice(salesInvoiceId).then(function (lineItems) { return _this.lineItemsAsociated = lineItems; });
+    };
     HomeComponent.prototype.gotoDetail = function () {
-        this.router.navigate(['sales-invoice/detail/', this.selected.id]);
+        this.router.navigate(['sales-invoice/detail/', this.salesInvoiceSelected.id]);
     };
     HomeComponent = __decorate([
         core_1.Component({
             selector: 'sales-invoice-list-app',
             templateUrl: 'app/templates/home.html',
-            providers: [sales_invoice_service_1.SalesInvoiceService /*, CustomerService*/]
+            providers: [sales_invoice_service_1.SalesInvoiceService, customer_service_1.CustomerService, line_item_service_1.LineItemService]
         }), 
-        __metadata('design:paramtypes', [router_1.Router, sales_invoice_service_1.SalesInvoiceService])
+        __metadata('design:paramtypes', [router_1.Router, sales_invoice_service_1.SalesInvoiceService, customer_service_1.CustomerService, line_item_service_1.LineItemService])
     ], HomeComponent);
     return HomeComponent;
 }());
