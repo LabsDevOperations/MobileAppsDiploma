@@ -11,4 +11,11 @@
   <p>
     If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
   </p>
+
+ 	<ul>
+	    <li *ngFor="let product of products" > 
+	        <span>{{product.id}}</span> {{product.name | uppercase }} 
+	    </li>
+    </ul>
 </ion-content>
+
