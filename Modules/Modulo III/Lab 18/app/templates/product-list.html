@@ -1,0 +1,27 @@
+<h1>{{ title }}</h1>
+
+<div *ngIf="productNew">
+    <label>Name: </label><br />
+    <input [(ngModel)]="productNew.name" placeholder="name"><br />
+    <label>Type: </label><br />
+    <input [(ngModel)]="productNew.type" placeholder="tipo"><br />
+    <label>Price: </label><br />
+    <input [(ngModel)]="productNew.price" placeholder="precio"><br />
+    <label>Quantity: </label><br />
+    <input [(ngModel)]="productNew.quantity" placeholder="cantidad"><br />
+    <button (click)="add();">
+        Add
+    </button>
+</div>
+
+<hr />
+
+<ul>
+    <li *ngFor="let product of products"
+        [class.pepito]="product === selected"
+        (click)="onSelect(product)">
+        <span>{{product.id}}</span> {{product.name}}
+    </li>
+</ul>
+
+<product-detail [product]="selected"></product-detail>
