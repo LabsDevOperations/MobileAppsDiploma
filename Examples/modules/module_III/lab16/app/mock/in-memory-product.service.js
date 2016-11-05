@@ -1,8 +1,9 @@
-import {InMemoryDbService} from "angular2-in-memory-web-api";
-/* Consumir api servicios */
-export class InMemoryProductService implements InMemoryDbService {
-    createDb() {
-        let products = [
+"use strict";
+var InMemoryProductService = (function () {
+    function InMemoryProductService() {
+    }
+    InMemoryProductService.prototype.createDb = function () {
+        var products = [
             {
                 id: 1,
                 name: "Samsung galaxy 8",
@@ -28,8 +29,9 @@ export class InMemoryProductService implements InMemoryDbService {
                 quantity: 20
             }
         ];
-
-        return {products};
-    }
-
-}
+        return { products: products };
+    };
+    return InMemoryProductService;
+}());
+exports.InMemoryProductService = InMemoryProductService;
+//# sourceMappingURL=in-memory-product.service.js.map

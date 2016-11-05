@@ -1,5 +1,5 @@
-import {InMemoryDbService} from "angular2-in-memory-web-api";
-/* Consumir api servicios */
+﻿import {InMemoryDbService} from "angular2-in-memory-web-api";
+
 export class InMemoryProductService implements InMemoryDbService {
     createDb() {
         let products = [

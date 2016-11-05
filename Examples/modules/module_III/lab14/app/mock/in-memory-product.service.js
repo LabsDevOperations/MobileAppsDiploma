@@ -1,4 +1,5 @@
 "use strict";
+/* Consumir api servicios */
 var InMemoryProductService = (function () {
     function InMemoryProductService() {
     }
