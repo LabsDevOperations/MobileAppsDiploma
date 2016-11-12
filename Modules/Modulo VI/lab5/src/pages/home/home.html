@@ -11,4 +11,14 @@
   <p>
     If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
   </p>
+
+<div *ngIf="product">
+	<hr />
+	<label>id: </label><span>{{product.id}}</span><br />
+	<label>name: </label><span>{{product.name}}</span><br />
+	<label>type: </label><span>{{product.type}}</span><br />
+	<label>price: </label><span>{{product.price}}</span><br />
+	<label>quantity: </label><span>{{product.quantity}}</span><br />
+  </div>
+
 </ion-content>
