@@ -1,24 +1,51 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-      Ionic Blank
+      Cell Phone List
     </ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  The world is your oyster.
+  
+  <ion-list>
+    <ion-item *ngFor="let product of products" (click)="loadDetail(product)">
+      <ion-icon name='phone-portrait'> {{product.name}}</ion-icon>
+    </ion-item>
+  </ion-list>
+
+  <!--The world is your oyster.
   <p>
     If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
   </p>
 
-<div *ngIf="product">
+  <p>
+    <button ion-button color="light" (click)="loadList()" >Light</button>
+  </p>
+
+  <p>
+    <button ion-butto (click)="loadInfo()">Default</button>
+  </p>
+
+  <p>
+    <button ion-button color="secondary">Secondary</button>
+  </p>
+
+  <p>
+    <button ion-button color="danger" block round>Danger</button>
+  </p>
+
+  <p>
+    <button ion-button color="dark">Dark</button>
+  </p>-->
+
+<!--div *ngIf="selected">
 	<hr />
 	<label>id: </label><span>{{product.id}}</span><br />
 	<label>name: </label><span>{{product.name}}</span><br />
 	<label>type: </label><span>{{product.type}}</span><br />
 	<label>price: </label><span>{{product.price}}</span><br />
 	<label>quantity: </label><span>{{product.quantity}}</span><br />
-  </div>
+</div>-->
 
 </ion-content>
