@@ -9,15 +9,23 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
+var app_component_1 = require('../component/app.component');
 var product_1 = require('../model/product');
 var product_service_1 = require("../service/product.service");
 var ProductDetailComponent = (function () {
-    function ProductDetailComponent(productService) {
+    function ProductDetailComponent(productService, appComponent) {
         this.productService = productService;
+        this.appComponent = appComponent;
+        this.title = "Detail";
     }
     ProductDetailComponent.prototype.save = function () {
         this.productService.update(this.product)
             .subscribe(function (response) { console.log(response); }, function (err) { console.log(err); });
+    };
+    ProductDetailComponent.prototype.remove = function () {
+        var _this = this;
+        this.productService.remove1(this.product)
+            .subscribe(function (response) { console.log(response); _this.appComponent.getProducts(); }, function (err) { console.log(err); });
     };
     __decorate([
         core_1.Input(), 
@@ -28,7 +36,7 @@ var ProductDetailComponent = (function () {
             selector: 'product-detail',
             templateUrl: 'app/templates/product-detail.html'
         }), 
-        __metadata('design:paramtypes', [product_service_1.ProductService])
+        __metadata('design:paramtypes', [product_service_1.ProductService, app_component_1.AppComponent])
     ], ProductDetailComponent);
     return ProductDetailComponent;
 }());

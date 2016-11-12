@@ -15,25 +15,32 @@ var Rx_1 = require('rxjs/Rx');
 var ProductService = (function () {
     function ProductService(http) {
         this.http = http;
-        this.productsURI = 'http://138.68.0.83:7070/api/v1/product/';
+        this.productsURI = 'http://138.68.0.83:7070/api/v1/product';
         this.headers = new http_1.Headers({ 'Content-Type': 'application/json' });
     }
     ProductService.prototype.getProducts = function () {
-        return this.http.get(this.productsURI + 'list')
+        return this.http.get(this.productsURI + '/list')
             .map(function (response) { return response.json(); })
             .catch(this.handleError);
     };
     ProductService.prototype.update = function (product) {
-        var url = this.productsURI + "/" + product.id;
+        var url = this.productsURI + "/update/" + product.id;
         return this.http
             .put(url, JSON.stringify(product), { headers: this.headers })
-            .map(function () { return product; })
+            .map(function (res) { return res.json(); })
             .catch(this.handleError);
     };
     ProductService.prototype.create = function (product) {
         return this.http
-            .post(this.productsURI + 'create', JSON.stringify(product), { headers: this.headers })
-            .map(function () { return product; })
+            .post(this.productsURI + '/create', JSON.stringify(product), { headers: this.headers })
+            .map(function (res) { return res.json(); })
+            .catch(this.handleError);
+    };
+    ProductService.prototype.remove1 = function (product) {
+        var url = this.productsURI + "/delete/" + product.id;
+        //const url = `${this.productsURI}/delete/131`;
+        return this.http
+            .delete(url)
             .catch(this.handleError);
     };
     ProductService.prototype.handleError = function (error) {

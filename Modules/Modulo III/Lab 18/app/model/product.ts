@@ -5,6 +5,7 @@ export class Product {
     quantity: number;
     price: number;
     constructor() {
+        this.id = null;
     	this.name = null;
     	this.type = "";
     	this.quantity = null;

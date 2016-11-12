@@ -42,11 +42,20 @@ export class AppComponent {
     }
 
     add(): void {
-        console.log('aaa');
         this.productService.create(this.productNew)
             .subscribe(product => {
                 this.products.push(product);
                 this.selected = null;
             });
     }
+
+    save(): void {
+        this.productService.update(this.selected)
+            .subscribe(
+                response => { console.log(response) },
+                err => { console.log(err) }
+            );
+    }
+
+   
 }

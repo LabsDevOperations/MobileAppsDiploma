@@ -7,32 +7,40 @@ import {Observable} from 'rxjs/Rx';
 @Injectable()
 export class ProductService {
 
-    private productsURI = 'http://138.68.0.83:7070/api/v1/product/';
+    private productsURI = 'http://138.68.0.83:7070/api/v1/product';
     private headers = new Headers({'Content-Type': 'application/json'});
 
     constructor(private http: Http) { }
 
     getProducts(): Observable<Product[]> {
-        return this.http.get(this.productsURI + 'list')
+        return this.http.get(this.productsURI + '/list')
             .map(response => response.json() as Product[])
             .catch(this.handleError);
     }
 
     update(product: Product): Observable<Product> {
-        const url = `${this.productsURI}/${product.id}`;
+        const url = `${this.productsURI}/update/${product.id}`;
         return this.http
             .put(url, JSON.stringify(product), {headers: this.headers})
-            .map(() => product)
+            .map(res => res.json())
             .catch(this.handleError);
     }
 
     create(product: Product): Observable<Product> {
-
         return this.http
-            .post(this.productsURI + 'create', 
+            .post(this.productsURI + '/create', 
                   JSON.stringify(product), 
                   { headers: this.headers })
-            .map(() => product)
+            .map(res => res.json())
+            .catch(this.handleError);
+    }
+
+    remove1(product: Product): Observable<any> {
+        const url = `${this.productsURI}/delete/${product.id}`;
+        //const url = `${this.productsURI}/delete/131`;
+        return this.http
+            .delete(url)
+            //.map(() => {{"deleted":"ok"};})
             .catch(this.handleError);
     }
 

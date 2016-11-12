@@ -34,12 +34,15 @@ var AppComponent = (function () {
     };
     AppComponent.prototype.add = function () {
         var _this = this;
-        console.log('aaa');
         this.productService.create(this.productNew)
             .subscribe(function (product) {
             _this.products.push(product);
             _this.selected = null;
         });
+    };
+    AppComponent.prototype.save = function () {
+        this.productService.update(this.selected)
+            .subscribe(function (response) { console.log(response); }, function (err) { console.log(err); });
     };
     AppComponent = __decorate([
         core_1.Component({
