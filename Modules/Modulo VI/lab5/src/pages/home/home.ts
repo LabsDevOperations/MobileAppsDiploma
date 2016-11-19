@@ -81,4 +81,21 @@ export class HomePage {
             );
         
     }
+
+    getItems(ev: any) {
+    	console.log('filtering');
+	    // Reset items back to all of the items
+	    this.getProducts(); 
+
+	    // set val to the value of the searchbar
+	    let val = ev.target.value;
+
+	    // if the value is an empty string don't filter the items
+	    if (val && val.trim() != '') {
+	      this.products = this.products.filter((item) => {
+	        return (item.name.toLowerCase().indexOf(val.toLowerCase()) > -1);
+	      })
+	    }
+	}
+
 }
