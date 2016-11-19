@@ -35,6 +35,23 @@ export class Service {
 
     }
 
+    update(product: Product): Observable<Product> {
+        const url = `${this.productsURI}/update/${product.id}`;
+        return this.http
+            .put(url, JSON.stringify(product), {headers: this.headers})
+            .map(res => res.json())
+            .catch(this.handleError);
+    }
+
+    remove(product: Product): Observable<any> {
+        const url = `${this.productsURI}/delete/${product.id}`;
+        //const url = `${this.productsURI}/delete/131`;
+        return this.http
+            .delete(url)
+            //.map(() => {{"deleted":"ok"};})
+            .catch(this.handleError);
+    }
+
     private handleError(error: any): Observable<any> {
         console.error('An error occurred', error); // for demo purposes only
         return Observable.throw(error.message || error);

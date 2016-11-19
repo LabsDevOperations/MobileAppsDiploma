@@ -7,10 +7,25 @@
 </ion-header>
 
 <ion-content padding>
-  
+
+
+
   <ion-list>
-    <ion-item *ngFor="let product of products" (click)="loadDetail(product)">
-      <ion-icon name='phone-portrait'> {{product.name}}</ion-icon>
+    <ion-item>
+      <button ion-button color="light" (click)="create();" >+</button>
+  
+      <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
+      
+    </ion-item>
+
+    <ion-item *ngFor="let product of products" >
+      <button ion-button icon-left (click)="loadDetail(product)" clear>
+        <ion-icon name="phone-portrait"></ion-icon>
+        {{product.name}}
+      </button>
+      <button ion-button color="light" item-right (click)="remove(product)" >
+        <ion-icon name="trash"></ion-icon>
+      </button>
     </ion-item>
   </ion-list>
 

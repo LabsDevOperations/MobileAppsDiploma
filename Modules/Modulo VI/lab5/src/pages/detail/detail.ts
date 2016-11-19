@@ -27,18 +27,22 @@ export class DetailPage {
 
   ionViewDidLoad() {
     console.log('Hello DetailPage Page' + this.productId);
-	this.productService.getProduct(this.productId)
+	  this.productService.getProduct(this.productId)
             .subscribe(
             product => {
                 this.product = product;
             },
-
             error => {
                 console.log('app.component.getProducts' + error);
             }
         );
+  }
 
-
+  save(): void {
+        this.productService.update(this.product)
+            .subscribe(
+                response => {console.log(response)},
+                err => { console.log(err)});
   }
 
 }

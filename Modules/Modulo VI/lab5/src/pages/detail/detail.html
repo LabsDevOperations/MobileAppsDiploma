@@ -15,7 +15,42 @@
 
 <ion-content padding>
 
-<div *ngIf="product">
+<ion-list *ngIf="product">
+
+  <ion-list-header>
+      Product Especs
+  </ion-list-header>
+
+  <ion-item>
+      <ion-icon name='planet' item-left></ion-icon>
+      Name:
+      <ion-input item-right [(ngModel)]="product.name" type="text" placeholder="name" ></ion-input>
+  </ion-item>
+
+  <ion-item>
+      <ion-icon name='planet' item-left></ion-icon>
+      Type:
+      <ion-input item-right [(ngModel)]="product.type" type="text" placeholder="type"></ion-input>
+  </ion-item>
+
+  <ion-item>
+      <ion-icon name='planet' item-left></ion-icon>
+      price:
+      <ion-input item-right [(ngModel)]="product.price" type="text" placeholder="price"></ion-input>
+  </ion-item>
+
+  <ion-item>
+      <ion-icon name='planet' item-left></ion-icon>
+      quantity:
+      <ion-input item-right [(ngModel)]="product.quantity" type="text" placeholder="quantity"></ion-input>
+  </ion-item>
+
+</ion-list>
+
+<button ion-button color="light" (click)="save();" >Save</button>
+
+<!--
+<div >
     <hr />
     <label>Name: </label><br />
     <input [(ngModel)]="product.name" placeholder="name"><br />
@@ -26,6 +61,6 @@
     <label>Quantity: </label><br />
     <input [(ngModel)]="product.quantity" placeholder="cantidad"><br />
 </div>
-
+-->
 
 </ion-content>

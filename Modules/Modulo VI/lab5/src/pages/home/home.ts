@@ -70,6 +70,15 @@ export class HomePage {
 
 	loadList() {
 	  	this.navCtrl.push(ListPage);
-	  }
+	}
 
+
+	remove(product: Product): void {
+        this.productService.remove(product)
+            .subscribe(
+                response => { console.log(response); this.getProducts(); },
+                err => { console.log(err) }
+            );
+        
+    }
 }
