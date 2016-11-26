@@ -36,3 +36,6 @@ https://onesignal.com/    - API para push notifications gratis por el momento
 https://console.developers.google.com/apis/dashboard?project=lab1-150701&duration=PT1H creacion de apy key para plugin de google maps
 
 https://developers.google.com/maps/documentation/javascript/get-api-key
+
+
+https://floobits.com/alejo8591/unipiloto-apm-5/file/modules/module_VIII/lab5/src/pages/home/home.ts:18
