@@ -15,6 +15,11 @@ export class Page2 {
 
   presentProfileModal() {
     let profileModal = this.modalCtrl.create(ModalProfilePage, { userId: 8675309 });
+
+    profileModal.onDidDismiss( data => {
+        console.log('MODAL DATA', data);
+    });
+
     profileModal.present();
   }
 

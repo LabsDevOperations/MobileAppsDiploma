@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ViewController } from 'ionic-angular';
+import { ViewController, NavParams  } from 'ionic-angular';
 
 @Component({
   selector: 'page-modal-profile',
@@ -7,7 +7,8 @@ import { ViewController } from 'ionic-angular';
 })
 export class ModalProfilePage {
 
-  constructor(public viewCtrl: ViewController) {
+  constructor(public viewCtrl: ViewController, public paramsCtrl: NavParams ) {
+      console.log('UserId', this.paramsCtrl.get('userId'));
   }
 
   /*
@@ -15,7 +16,8 @@ export class ModalProfilePage {
   * con el componente activo
   * */
   dismiss() {
-    this.viewCtrl.dismiss();
+    let data = { 'foo': 'bar' };
+   this.viewCtrl.dismiss(data);
   }
 
 }
