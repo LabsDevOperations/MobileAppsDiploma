@@ -25,15 +25,10 @@ export class Page1 {
     let actionSheet = this.actionSheetCtrl.create({
       title: 'Modificar alguna opción',
       buttons: [
-        {
-          text: 'Destructivo',
-          role: 'destructive',
-          handler: () => {
-            console.log('Click en Destructive');
-          }
-        },
+
         {
           text: 'Alguna una opción',
+          icon: 'alarm',
           handler: () => {
             console.log('Alguna una opción');
           }
@@ -42,6 +37,14 @@ export class Page1 {
           text: 'Alguna otra opción',
           handler: () => {
             console.log('Alguna otra opción');
+          }
+        },
+        {
+          text: 'Destructivo',
+          role: 'destructive',
+          handler: () => {
+            // opciones peligrosas
+            console.log('Click en Destructive');
           }
         },
         {

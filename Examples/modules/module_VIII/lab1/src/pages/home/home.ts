@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
-
+import { Dialogs } from 'ionic-native'; // modulo de los dialogos
 import { NavController } from 'ionic-angular';
-import { Network } from 'ionic-native';
 
 @Component({
   selector: 'page-home',
@@ -9,20 +8,28 @@ import { Network } from 'ionic-native';
 })
 export class HomePage {
 
-  public network: string;
-
   constructor(public navCtrl: NavController) {
+    
   }
 
-  ngOnInit() {
-    Network.onConnect().subscribe(() => {
-      this.network = Network.connection;
-      setTimeout(() => {
-        if (Network.connection === 'wifi') {
-          console.log(Network.connection);
-        }
-      }, 3000);
-    });
+  loadAlert() {  // informativo 
+    // parametros mensaje, titulo, boton
+    Dialogs.alert('este es un mensaje con ventana nativa', 'Alert!', 'Entendido');
   }
 
+  loadConfirm() {
+    // parametros mensaje, titulo, arreglo de strings botones 2 a 3 max
+    Dialogs.confirm('Mensaje que requiere confirmacion', 'COnfirm', ['Entendido', 'Cancelar'])
+      .then((options) => console.log(options), (error) => console.log(error));
+
+      // options: info del boton: pe. indice  boton
+  }
+
+  loadPrompt() {
+    // parametros: mensaje, titulo, botones, place holder
+    Dialogs.prompt('Ventana con prompt', 'Prompt', ['Aceptar', 'Cancelar'], 'Ingrese id')
+      .then(results => console.log(results.buttonIndex
+                                  , results.input1)
+            , error => console.log(error));
+  }
 }

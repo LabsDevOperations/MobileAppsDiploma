@@ -7,5 +7,7 @@
 </ion-header>
 
 <ion-content padding>
-  <h1>{{network}}</h1>
+ <button ion-button large (click)="loadAlert()">Alert</button>
+  <button ion-button large (click)="loadConfirm()">Confirm</button>
+  <button ion-button large (click)="loadPrompt()">Prompt</button>
 </ion-content>
