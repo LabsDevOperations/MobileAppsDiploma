@@ -10,41 +10,62 @@ import { Storage } from '@ionic/storage';
 })
 export class Page1 {
 
-  constructor(public navCtrl: NavController) {
+  constructor(public navCtrl: NavController, public storage: Storage) {
     
   }
 
+  
+
+  private setDataCoords: any = {latitude: '', longitude: ''};
+  data: any = {latitude: '', longitude: ''};
+  coordenadaText : string;
+
   loadConfirm() {
-  	console.log('loadConfirm ok')
-  	Dialogs.prompt('Estas son las coordenadas de su localización. Desea almacenarlas en Ionic Storage?'
-  		,'Dialog', ['Por supuesto!', 'Cancelar'], this.obtenerCoordenadas())
-  		.then((options) => this.almacenar(options), (error) => console.log(error));
+    this.obtenerCoordenadas();
+    console.log('loadConfirm ok')
+    
   }
 
   almacenar(op){
-  	console.log('almacenar ok')
-  	if (op == 1)
-  	{
-  		console.log(op);
-  	}
+    console.log('almacenar ok')
+    if (op == 1)
+    {
+      console.log(this.setDataCoords);
+      this.storage.set("coords", this.setDataCoords);
+    } else 
+    {
+      this.storage.get("coords").then(res => {
+      console.log(res); 
+    });  
+    }
   }
 
-  coordenadaText : string;
-  obtenerCoordenadas() : string 
+  obtenerCoordenadas() : void  
   {
-	Geolocation.getCurrentPosition(
-		{ enableHighAccuracy: true
-		 , maximumAge: 5000 }).then(res => {
+    Geolocation.getCurrentPosition(
+  	{ enableHighAccuracy: true
+      , timeout: 10000000
+  	 , maximumAge: 50000 }).then(res => {
       	
-      	/*console.log(res.coords);
-      let coords = [{
-        'longitude' : res.coords.longitude,
-        'latitude' : res.coords.latitude
-      }];*/
-      //this.coordenadaText = 'longitude' + res.coords.longitude + ;
+      	console.log(res.coords);
+
+        this.setDataCoords.latitude = res.coords.latitude;
+        this.setDataCoords.longitude = res.coords.longitude;
+
+     
+      Dialogs.confirm('Estas son las coordenadas de su localización: ' +
+       'longitude: ' + res.coords.longitude.toString() + 
+                            ' latitude: ' + res.coords.latitude.toString() +
+      ' Desea almacenarlas en Ionic Storage?'
+      ,'Dialog', ['Por supuesto!', 'Cancelar'])
+      .then((options) => this.almacenar(options), (error) => console.log(error));
+
       
+    }).catch((error) => {
+      console.log('Error getting location', error);
     });
-	return '18, 25';
+    console.log('obteniendo coordenadas');
+	  //return this.coordenadaText;
   }
 
 }
